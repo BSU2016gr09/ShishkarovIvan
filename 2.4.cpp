@@ -1,34 +1,34 @@
-/*Массив целых чисел размера N проинициализировать последовательными числами от 1 до N.
-"Перетусовать" элементы массива двумя способами, предложенными на паре:
-с использованием доп.массива и просто меняя местами случайные элементы.*/
+/* РњР°СЃСЃРёРІ С†РµР»С‹С… С‡РёСЃРµР» СЂР°Р·РјРµСЂР° N РїСЂРѕРёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°С‚СЊ СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё РёР· РїСЂРѕРјРµР¶СѓС‚РєР° РѕС‚ -N РґРѕ N.
+Р¦РёРєР»РёС‡РµСЃРєРё СЃРґРІРёРЅСѓС‚СЊ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° РІРїСЂР°РІРѕ РЅР° 1 СЌР»РµРјРµРЅС‚ (РїРѕСЃР»РµРґРЅРёР№ СЌР»РµРјРµРЅС‚ СЃС‚Р°РЅРµС‚ РїРµСЂРІС‹Рј, 1-Р№ СЃС‚Р°РЅРµС‚ 2-Рј, 2-Р№ СЃС‚Р°РЅРµС‚ 3-Рј Рё С‚.Рґ.)
+РїРѕС‚РѕРј С†РёРєР»РёС‡РµСЃРєРё СЃРґРІРёРЅСѓС‚СЊ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° РІР»РµРІРѕ РЅР° 1 СЌР»РµРјРµРЅС‚ (РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ СЃС‚Р°РЅРµС‚ РїРѕСЃР»РµРґРЅРёРј, 2-Р№ СЃС‚Р°РЅРµС‚ 1-Рј Рё С‚.Рґ)*/
 #include <iostream>
 #include <ctime>
 #include <iomanip>
 #include <clocale>
 using namespace std;
-void initArray(int A[], int N);
 void initRandomArray(int A[], int N);
-void randomSortingArray(int A[], int N);
+void turnArrayRight(int A[], int N);
+void turnArrayLeft(int A[], int N);
 void printArray(int A[], int N);
-void randomSortingArrayUsingAnotherArray(int A[], int N,int B[]);
-int main() {
-	const int N = 10;
-	int A[N], B[N];
-	setlocale(LC_ALL, "russian");
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
 	srand(time(NULL));
-	initArray(A, N);
-    initRandomArray(B, N);
+	const int N = 13;
+	int A[N];
+	initRandomArray(A , N);
 	printArray(A, N);
-	cout << "  Массив от 1 до N\n";
-	randomSortingArray(A, N);
+	cout << " РСЃС…РѕРґРЅС‹Р№ РјР°СЃСЃРёРІ\n";
+	turnArrayRight(A, N);
 	printArray(A, N);
-	cout << "  Массив отсортированный с помощью рандомных чисел \n";
-	initArray(A, N);
+    cout << " РЎРґРІРёРЅСѓС‚С‹Р№ РІРїСЂР°РІРѕ РјР°СЃСЃРёРІ\n";
+	turnArrayLeft(A, N); 
 	printArray(A, N);
-	cout << "  Массив от 1 до N\n";
-	randomSortingArrayUsingAnotherArray(A, N,B);
+	cout << " РСЃС…РѕРґРЅС‹Р№ РјР°СЃСЃРёРІ\n";
+	turnArrayLeft(A, N);
 	printArray(A, N);
-	cout << "  Масссив отсортированный с помощью доп.массива\n";
+	cout << " РЎРґРІРёРЅСѓС‚С‹Р№ РІР»РµРІРѕ РјР°СЃСЃРёРІ\n";
 	system("pause");
 }
 void initRandomArray(int A[], int N)
@@ -36,51 +36,32 @@ void initRandomArray(int A[], int N)
 	int i = 0;
 	while (i < N)
 	{
-		A[i] = rand() % N + 1;
+		A[i] = rand() %(2*N+1) -N;
 		i++;
 	}
 }
-void randomSortingArray(int A[], int N) {
-	int i = 0,j=0;
-	while (i < N) {
-		j = rand() % N;
-		swap(A[i], A[j]);
+void turnArrayRight(int A[], int N) {
+	int i = 0,j=N-1;
+	while (i <N-1)
+	{
+		swap(A[j - i], A[j-1 - i]);
 		i++;
 	}
 
 }
-void printArray(int A[], int N)
+void turnArrayLeft(int A[], int N) {
+	int i = 0;
+	while (i < N-1)
+	{
+		swap(A[i],A[i+1]);
+		i++;
+	}
+}
+	void printArray(int A[], int N)
 {
 	int i = 0;
-	while (i < N)
+	while (i<N)
 	{
-		cout << A[i++] << setw(3);
-	}
-}
-void randomSortingArrayUsingAnotherArray(int A[], int N, int B[])
-{
-	int i = 0, j = 1;
-	initRandomArray(B, N);
-	while (i < N)
-	{
-
-		while (j < N)
-		{
-			if (B[i] < B[j]) {
-				swap(B[i], B[j]); swap(A[i], A[j]);
-			}
-			j++;
-		}
-		i++;
-		j = i + 1;
-	}
-}
-void initArray(int A[], int N) {
-	int i = 0,j=1;
-	while (i < N)
-	{
-		A[i] = j;
-		i++;
-		j++;
+		cout << A[i++] << setw(4);
 	}
 }
