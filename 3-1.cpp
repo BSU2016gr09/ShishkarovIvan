@@ -1,7 +1,7 @@
-/* 1) Õ‡ÔË¯ËÚÂ Ë„Û ‚ ÍÓÒÚË ÏÂÊ‰Û ˜ÂÎÓ‚ÂÍÓÏ Ë ÍÓÏÔ¸˛ÚÂÓÏ.ŒÌË ÔÓ Ó˜ÂÂ‰Ë ÍË‰‡˛Ú ÔÓ ‰‚‡ ÍÛ·ËÍ‡.
-œÓ·ÂÊ‰‡ÂÚ ÚÓÚ Û ÍÓ„Ó ÒÛÏÏ‡ ·ÓÎ¸¯Â.
-»„‡ Á‡Í‡Ì˜Ë‚‡ÂÚÒˇ ÂÒÎË Ì‡·‡Ì‡ ÒÛÏÏ‡ >50. 
-  Û·ËÍË ËÒÛÈÚÂ ‚ ÓÚ‰ÂÎ¸ÌÓÈ Ù - ˆËË ÔÒÂ‚‰Ó„‡ÙËÍÓÈ(ÒÏ.ËÒÛÌÓÍ ‚ Í‡˜ÂÒÚ‚Â ÔËÏÂ‡).
+/* 1) –ù–∞–ø–∏—à–∏—Ç–µ –∏–≥—Ä—É –≤ –∫–æ—Å—Ç–∏ –º–µ–∂–¥—É —á–µ–ª–æ–≤–µ–∫–æ–º –∏ –∫–æ–º–ø—å—é—Ç–µ—Ä–æ–º.–û–Ω–∏ –ø–æ –æ—á–µ—Ä–µ–¥–∏ –∫–∏–¥–∞—é—Ç –ø–æ –¥–≤–∞ –∫—É–±–∏–∫–∞.
+–ü–æ–±–µ–∂–¥–∞–µ—Ç —Ç–æ—Ç —É –∫–æ–≥–æ —Å—É–º–º–∞ –±–æ–ª—å—à–µ.
+–ò–≥—Ä–∞ –∑–∞–∫–∞–Ω—á–∏–≤–∞–µ—Ç—Å—è –µ—Å–ª–∏ –Ω–∞–±—Ä–∞–Ω–∞ —Å—É–º–º–∞ >50. 
+ –ö—É–±–∏–∫–∏ —Ä–∏—Å—É–π—Ç–µ –≤ –æ—Ç–¥–µ–ª—å–Ω–æ–π —Ñ - —Ü–∏–∏ –ø—Å–µ–≤–¥–æ–≥—Ä–∞—Ñ–∏–∫–æ–π(—Å–º.—Ä–∏—Å—É–Ω–æ–∫ –≤ –∫–∞—á–µ—Å—Ç–≤–µ –ø—Ä–∏–º–µ—Ä–∞).
 + -- - +
 | O |
 | O |
@@ -20,10 +20,10 @@ int main()
 	srand(time(NULL));
 	setlocale(LC_ALL, "Russian");
 	if (diceGame() == -1)
-		cout << "\n ¬˚ ÔÓË„‡ÎË \n";
+		cout << "\n –í—ã –ø—Ä–æ–∏–≥—Ä–∞–ª–∏ \n";
 	else if (diceGame == 0)
-		cout << "ÕË˜¸ˇ";
-	else cout << "\n ¬˚ ‚˚Ë„‡ÎË \n";
+		cout << "–ù–∏—á—å—è";
+	else cout << "\n –í—ã –≤—ã–∏–≥—Ä–∞–ª–∏ \n";
 
 	system("pause");
 
@@ -87,7 +87,7 @@ void printDice(int value)
 		break;
 	}
 	default:
-		cout << "Œ¯Ë·Í‡\n";
+		cout << "–û—à–∏–±–∫–∞\n";
 	}
 }
 int diceGame()
@@ -95,7 +95,7 @@ int diceGame()
 	int playerscore = 0, computerscore = 0,value;
 	while (playerscore < 50 && computerscore < 50)
 	{
-		cout << "¬‡¯ ıÓ‰\n";
+		cout << "–í–∞—à —Ö–æ–¥\n";
 		system("pause");
 		value = diceValue();
 			printDice(value);
@@ -103,8 +103,8 @@ int diceGame()
 		value = diceValue();
 			printDice(value);
 		playerscore += value;
-		cout << "\n ¬‡¯ ÚÂÍÛ˘ËÈ Ò˜∏Ú = " << playerscore;
-		cout << "\n ’Ó‰ ÒÓÔÂÌËÍ‡\n";
+		cout << "\n –í–∞—à —Ç–µ–∫—É—â–∏–π —Å—á—ë—Ç = " << playerscore;
+		cout << "\n –•–æ–¥ —Å–æ–ø–µ—Ä–Ω–∏–∫–∞\n";
 		system("pause");
 			value = diceValue();
 			printDice(value);
@@ -112,7 +112,7 @@ int diceGame()
 		value = diceValue();
 			printDice(value);
 		computerscore += value;
-		cout  << "\n —˜∏Ú ÔÓÚË‚ÌËÍ‡ = " << computerscore << "\n";
+		cout  << "\n –°—á—ë—Ç –ø—Ä–æ—Ç–∏–≤–Ω–∏–∫–∞ = " << computerscore << "\n";
 	}
 	if (computerscore > 50)
 	{
