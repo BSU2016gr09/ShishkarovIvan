@@ -1,7 +1,33 @@
+/*Реализовать операции целочисленной арифметики на массивах размера MAX_SIZE=100 (глобальная константа). В цикле вычислить максимальное возможное на этих массивах число Фибоначчи 1,1,2,3,.... и (для желающих получить 9-10 на экзамене) максимально возможный факториал.
+Тех, кто самостоятельно реализует операцию деления выведите для последних трех чисел Фибоначчи их отношение.*/
+
 #include <iostream>
 #include <iomanip>
 #include <clocale>	
 using namespace std;
+void Fibonacci(int A[],int B[],int Rez[],int MAXSIZE);
+void createSimillarArray(int A[], int B[], int N);
+void difference(int A[], int B[], int Rez[], int N);
+void initArray(int A[], int N);
+void initArray(int A[], int N, int init);
+void inputArray(int A[], int N);
+void printNumberArray(int A[], int N) ;
+void sum(int A[], int B[], int Rez[], int N);
+int main()
+{
+	setlocale(LC_ALL, "russian");
+	const int MAXSIZE = 100;
+	int A[MAXSIZE], B[MAXSIZE], Rez[MAXSIZE], init = 0;
+	initArray(A, MAXSIZE, 0);
+	A[0] = 1;
+	initArray(B, MAXSIZE, 0);
+	B[0] = 1;
+	initArray(Rez, MAXSIZE, 0);
+	Fibonacci(A, B, Rez, MAXSIZE);
+	
+	printNumberArray(Rez, MAXSIZE);
+	system("pause");
+}
 void initArray(int A[], int N)
 {
 	int i = 0;
@@ -88,21 +114,6 @@ void Fibonacci(int A[],int B[],int Rez[],int MAXSIZE)
 		createSimillarArray(B, Rez, MAXSIZE);
 		board++;
 	}
-		cout << "\n ����� �������� ����� ("<<board-1<<")= ";
+		cout << "\n ×èñëî Ôèáîíà÷è íîìåð ("<<board-1<<")= ";
 		printNumberArray(Rez, MAXSIZE);
 } 
-int main()
-{
-	setlocale(LC_ALL, "russian");
-	const int MAXSIZE = 100;
-	int A[MAXSIZE], B[MAXSIZE], Rez[MAXSIZE], init = 0;
-	initArray(A, MAXSIZE, 0);
-	A[0] = 1;
-	initArray(B, MAXSIZE, 0);
-	B[0] = 1;
-	initArray(Rez, MAXSIZE, 0);
-	Fibonacci(A, B, Rez, MAXSIZE);
-	
-	printNumberArray(Rez, MAXSIZE);
-	system("pause");
-}
