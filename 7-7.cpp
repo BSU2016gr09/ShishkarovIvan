@@ -1,3 +1,5 @@
+/*спиральное заполнение матрцы */
+
 #include <iostream>
 
 #include <iomanip>
