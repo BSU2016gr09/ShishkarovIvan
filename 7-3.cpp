@@ -1,3 +1,4 @@
+/*Транспонировать случайную квадратную матрицу (n,n)*/
 #include <iostream>
 
 #include<iomanip>
