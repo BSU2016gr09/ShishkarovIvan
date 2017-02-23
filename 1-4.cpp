@@ -110,4 +110,5 @@ void primesSequence(int *A, int size) {
 	for (int i = 0; i < j - 1  ; i++){
 		A[index[i]] = primes[i];
 	}
+	delete[] primes,index,primesA;
 }
