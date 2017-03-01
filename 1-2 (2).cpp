@@ -100,5 +100,5 @@ void give_memory(int * & A, int size) {
 void delete_memory(int * & A) {
 	delete[] A;
 }
-=======
->>>>>>> 2c0fb6eae6ab92041135e3e716968ec60d30fc25:1-2.cpp
+
+
