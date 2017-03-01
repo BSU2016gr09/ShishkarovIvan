@@ -80,5 +80,4 @@ void give_memory(int * & A, int size) {
 void delete_memory(int * & A) {
 	delete[] A;
 }
-	return 1;
-}
+
