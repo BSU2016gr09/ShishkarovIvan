@@ -32,8 +32,7 @@ int main() {
 	int *A;
 	cout << "enter size";
 	cin >> size;
-	A = new int[size];
-
+	
 	give_memory(A, size);
 	initArray(A, size);
 	printArray(A, size);
