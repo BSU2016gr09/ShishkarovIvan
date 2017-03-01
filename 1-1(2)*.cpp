@@ -1,12 +1,16 @@
+/*это второй вариант 1-1*/
+
 #include <iostream>
 
 #include <iomanip>
 
 #include <ctime>
 
-#include<fstream>
-
 using namespace std;
+
+void give_memory(int * & A,int size);
+
+void delete_memory(int * & A);
 
 void quickSort(int *A, int begin, int end);
 
@@ -16,19 +20,19 @@ void printArray(int *A, int size);
 
 int main() {
 
-	int size = 10 ;
+	int size ;
 
 	int *A;
 
 	cout << "enter size";
-	//	cin >> size;
+	cin >> size;
 
-	A = new int[size];
+	give_memory(A, size); 
 
-	int begin = 0;
+	int begin ;
 	int end = size - 1;
 	cout << "enter begin";
-	//cin >> begin;
+	cin >> begin;
 
 	if (begin < 0) return 0;
 
@@ -44,7 +48,7 @@ int main() {
 
 	printArray(A, size);
 
-	delete[] A;
+	delete_memory(A); 
 
 	system("pause");
 
@@ -80,4 +84,15 @@ void printArray(int *A, int size) {
 	
 	if (left < end ) quickSort(A, left, end);
 	if (right > begin) quickSort(A, begin, right);
+}
+void give_memory(int * & A, int size) {
+	try {
+		A = new int[size];
+	}
+	catch (...) {
+		cout << "failed";
+	}
+}
+void delete_memory(int * & A) {
+	delete[] A;
 }
