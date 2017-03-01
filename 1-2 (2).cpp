@@ -6,6 +6,10 @@
 
 using namespace std;
 
+void give_memory(int * & A, int size);
+
+void delete_memory(int * & A);
+
 void pointsSort(int *X,int *Y, int size, int a, int b, int c);
 
 void initArray(int *A, int size);
@@ -24,8 +28,8 @@ int main() {
 	cout << "enter number of points";
 	cin >> size;
 
-	X = new int[size];
-	Y = new int[size];
+	give_memory(X, size);
+	give_memory(Y, size);
 
 	initArray(X, size);
 	cout << endl;
@@ -37,7 +41,7 @@ int main() {
 	cout << endl;
 
 	int a, b, c;
-	cout << "enter coefficients from equatin Ax+By+C in such sequence :  A  B  C";
+	cout << "enter coefficients from equatien Ax+By+C in such sequence :  A  B  C";
 	cin >> a >> b >> c;
 	pointsSort(X, Y, size, a, b, c);
 
@@ -46,7 +50,8 @@ int main() {
 	printArray(Y, size);
 	cout << endl;
 
-	delete[] X,Y;
+	delete_memory(X);
+	delete_memory(Y);
 
 	system("pause");
 
@@ -80,4 +85,15 @@ void pointsSort(int *X,int *Y, int size, int a, int b, int c) {
 float lenthToLine(int x, int y, int a, int b, int c) {
 	float lenth = (a*x + b*y + c)*1.0 / (sqrt(a*a + b*b)*1.0);
 	return lenth;
+}
+void give_memory(int * & A, int size) {
+	try {
+		A = new int[size];
+	}
+	catch (...) {
+		cout << "failed";
+	}
+}
+void delete_memory(int * & A) {
+	delete[] A;
 }

@@ -6,6 +6,10 @@
 
 using namespace std;
 
+void give_memory(int * & A, int size);
+
+void delete_memory(int * & A);
+
 void Sort(int *A, int size, int begin);
 
 void initArray(int *A, int size);
@@ -27,15 +31,14 @@ int main() {
 	cin >> size;
 	A = new int[size];
 
+	give_memory(A, size);
 	initArray(A, size);
 	printArray(A, size);
 	cout << endl;
 
 	primesSequence(A, size);
-
 	printArray(A, size);
-
-	delete[] A;
+	delete_memory(A);
 
 	system("pause");
 
@@ -88,11 +91,15 @@ bool isPrime(int *primes, int size, int numb) {
 	return false;
 }
 void primesSequence(int *A, int size) {
-	int *primesA = new int[size];
-	int *index = new int[size];
-	int size_primes = size;
+	int *primesA;
+	int *index;
+
+	give_memory(primesA, size);
+	give_memory(index, size);
+
+	int size_primes = 100; // fun eratosthenes creates array,that consists of all primes less than 100
 	int *primes;
-	primes = new int[size_primes];
+	give_memory(primes, size_primes);
 	eratosthenes(primes, size_primes);
 
 	int j = 0;
@@ -102,10 +109,25 @@ void primesSequence(int *A, int size) {
 			index[j++] = i;
 		}
 	}
-	j++;
+
 	Sort(primesA, j, 1);
 
-	for (int i = 0; i < j - 1  ; i++){
-		A[index[i]] = primes[i];
+	for (int i = 0; i < j   ; i++){
+		A[index[i]] = primesA[i];
 	}
+
+	delete_memory(index);
+	delete_memory(primesA);
+	delete_memory(primes);
+}
+void give_memory(int * & A, int size) {
+	try {
+		A = new int[size];
+	}
+	catch (...) {
+		cout << "failed";
+	}
+}
+void delete_memory(int * & A) {
+	delete[] A;
 }
