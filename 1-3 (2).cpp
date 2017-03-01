@@ -1,5 +1,6 @@
-/*Положительные элементы массива А(N) переставить в конец массива, сохраняя порядок следования.
-Отрицательные элементы расположить в порядке убывания. Дополнительный массив не использовать.*/
+/*лементы массива А(N),значения которых – простые числа, расположить в порядке возрастания, 
+не нарушая порядка следования других элементов.
+*/
 #include <iostream>
 
 #include <iomanip>
@@ -8,7 +9,7 @@
 
 using namespace std;
 
-void give_memory(int * & A,int size);
+void give_memory(int * & A, int size);
 
 void delete_memory(int * & A);
 
@@ -18,39 +19,29 @@ void initArray(int *A, int size);
 
 void printArray(int *A, int size);
 
-int positiveInBegin(int *A, int size);// return position of the last positive element. Al elements after pstn are less or equal to 0
+void eratosthenes(int *primes, int &size); 
+
+bool isPrime(int *primes,int size, int numb);
+
+void primesSequence(int *A, int size);
 
 int main() {
-	
 	srand(time(NULL));
 
 	int size;
 	int *A;
-
 	cout << "enter size";
 	cin >> size;
-
-<<<<<<< HEAD:1-3 (2).cpp
-	give_memory(A, size); 
-=======
 	A = new int[size];
 
-	//give_memory(A, size); при такой функции вижла срубается 
->>>>>>> 2c0fb6eae6ab92041135e3e716968ec60d30fc25:1-3.cpp
-
+	give_memory(A, size);
 	initArray(A, size);
-
 	printArray(A, size);
-
 	cout << endl;
 
-	Sort(A, size, positiveInBegin(A,size)+1);
-
+	primesSequence(A, size);
 	printArray(A, size);
-	
-	cout << endl;
-
-	delete_memory(A); 
+	delete_memory(A);
 
 	system("pause");
 
@@ -60,12 +51,12 @@ int main() {
 void initArray(int *A, int size) {
 
 	for (int i = 0; i < size; i++) {
-		A[i] = rand() % 20 - 10;
+		A[i] = rand() % 10;
 	}
 }
 void printArray(int *A, int size) {
 	for (int i = 0; i < size; i++) {
-		cout << A[i] << setw(4);
+		cout << A[i] << setw(2);
 	}
 }
 void Sort(int *A, int size, int begin) {
@@ -73,17 +64,64 @@ void Sort(int *A, int size, int begin) {
 	int j = begin;
 	for (; i < size; i++) {
 		for (; j < size; j++) {
-			if (A[i] < A[j]) swap(A[i], A[j]);
+			if (A[i] > A[j]) swap(A[i], A[j]);
 		}
 		j = i + 1;
 	}
 }
-int positiveInBegin(int *A, int size){
-	int i = 0, j = 0;
-	for (; i < size; i++){
-		if (A[i] > 0) swap(A[i], A[j++]);
+void eratosthenes(int *primes, int &size) {
+	bool *check;
+	check = new  bool[size];
+	check[0] = check[1] = false;
+	int j = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (check[i])
+		{
+			primes[j++] = i;
+			for (int k = i; k < size; k += i)
+			{
+				check[k] = false;
+			}
+		}
 	}
-	return j;
+	size = j;
+}
+bool isPrime(int *primes, int size, int numb) {
+	for (int i = 0; i < size; i++){
+		if (primes[i] == numb) return true;
+	}
+	return false;
+}
+void primesSequence(int *A, int size) {
+	int *primesA;
+	int *index;
+
+	give_memory(primesA, size);
+	give_memory(index, size);
+
+	int size_primes = 100; // fun eratosthenes creates array,that consists of all primes less than 100
+	int *primes;
+	give_memory(primes, size_primes);
+	eratosthenes(primes, size_primes);
+
+	int j = 0;
+	for (int i = 0; i < size; i++){
+		if (isPrime(primes, size_primes, A[i])) {
+			primesA[j] = A[i];
+			index[j++] = i;
+		}
+	}
+
+	Sort(primesA, j, 1);
+
+	for (int i = 0; i < j   ; i++){
+		A[index[i]] = primesA[i];
+	}
+
+	delete_memory(index);
+	delete_memory(primesA);
+	delete_memory(primes);
 }
 void give_memory(int * & A, int size) {
 	try {
@@ -92,11 +130,7 @@ void give_memory(int * & A, int size) {
 	catch (...) {
 		cout << "failed";
 	}
-<<<<<<< HEAD:1-3 (2).cpp
 }
 void delete_memory(int * & A) {
 	delete[] A;
-=======
-	return 1;
->>>>>>> 2c0fb6eae6ab92041135e3e716968ec60d30fc25:1-3.cpp
 }
