@@ -1,3 +1,5 @@
+//XORShift
+
 #include<iostream>
 
 #include <iomanip>
