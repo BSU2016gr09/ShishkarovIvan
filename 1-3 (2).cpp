@@ -1,3 +1,5 @@
+/*Положительные элементы массива А(N) переставить в конец массива, сохраняя порядок следования.
+Отрицательные элементы расположить в порядке убывания. Дополнительный массив не использовать.*/
 #include <iostream>
 
 #include <iomanip>
@@ -28,7 +30,13 @@ int main() {
 	cout << "enter size";
 	cin >> size;
 
+<<<<<<< HEAD:1-3 (2).cpp
 	give_memory(A, size); 
+=======
+	A = new int[size];
+
+	//give_memory(A, size); при такой функции вижла срубается 
+>>>>>>> 2c0fb6eae6ab92041135e3e716968ec60d30fc25:1-3.cpp
 
 	initArray(A, size);
 
@@ -84,7 +92,11 @@ void give_memory(int * & A, int size) {
 	catch (...) {
 		cout << "failed";
 	}
+<<<<<<< HEAD:1-3 (2).cpp
 }
 void delete_memory(int * & A) {
 	delete[] A;
+=======
+	return 1;
+>>>>>>> 2c0fb6eae6ab92041135e3e716968ec60d30fc25:1-3.cpp
 }

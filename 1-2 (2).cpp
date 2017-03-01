@@ -1,3 +1,5 @@
+/*Даны точки плоскости своими координатами в виде двух одномерных массивов.
+Точки плоскости рассортировать по возрастанию расстояния до прямой ax + by + c = 0.*/
 #include <iostream>
 
 #include <iomanip>
@@ -86,6 +88,7 @@ float lenthToLine(int x, int y, int a, int b, int c) {
 	float lenth = (a*x + b*y + c)*1.0 / (sqrt(a*a + b*b)*1.0);
 	return lenth;
 }
+<<<<<<< HEAD:1-2 (2).cpp
 void give_memory(int * & A, int size) {
 	try {
 		A = new int[size];
@@ -97,3 +100,5 @@ void give_memory(int * & A, int size) {
 void delete_memory(int * & A) {
 	delete[] A;
 }
+=======
+>>>>>>> 2c0fb6eae6ab92041135e3e716968ec60d30fc25:1-2.cpp

@@ -1,3 +1,8 @@
+/*Расположить в порядке возрастания элементы массива А(N), начиная с k-го элемента.
+*/
+ 
+// этот квиксорт не работает со значениями примерно большими за 10. также при выделении памяти как на паре(через исключения) 
+//вижла срубается
 #include <iostream>
 
 #include <iomanip>
@@ -13,9 +18,7 @@ void initArray(int *A, int size);
 void printArray(int *A, int size);
 
 int main() {
-
 	int size;
-
 	int *A;
 
 	cout << "enter size";
@@ -32,7 +35,7 @@ int main() {
 
 	srand(time(NULL));
 
-    initArray(A, size);
+    	initArray(A, size);
 
 	printArray(A, size);
 
@@ -50,7 +53,6 @@ int main() {
 }
 
 void initArray(int *A, int size) {
-
 	for (int i = 0; i < size; i++) {
 		A[i] = rand() % 10 ;
 	}
@@ -61,15 +63,13 @@ void printArray(int *A, int size) {
 	}
 }
 void quickSort(int *A, int size, int begin) {
-	
 	int j = size + begin - 2;
 	bool dir = true;
 	int current = begin - 1;
 	int leftLenth = 0;
 	int rightLenth = 0;
 	
-	for (int i = 1; i < size; i++)
-	{ 
+	for (int i = 1; i < size; i++){ 
 		if (dir) {
 			if (A[current] > A[j]) {
 				swap(A[current], A[j]);

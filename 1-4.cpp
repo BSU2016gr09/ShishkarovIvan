@@ -1,3 +1,5 @@
+/*Элементы массива А(N), значения которых – простые числа,
+расположить в порядке возрастания, не нарушая порядка следования других элементов.*/
 #include <iostream>
 
 #include <iomanip>
@@ -115,6 +117,7 @@ void primesSequence(int *A, int size) {
 	for (int i = 0; i < j   ; i++){
 		A[index[i]] = primesA[i];
 	}
+<<<<<<< HEAD
 
 	delete_memory(index);
 	delete_memory(primesA);
@@ -130,4 +133,7 @@ void give_memory(int * & A, int size) {
 }
 void delete_memory(int * & A) {
 	delete[] A;
+=======
+	delete[] primes,index,primesA;
+>>>>>>> 2c0fb6eae6ab92041135e3e716968ec60d30fc25
 }
