@@ -76,8 +76,7 @@ void eratosthenes(int *primes, int &size) {
 	int j = 0;
 	for (int i = 0; i < size; i++)
 	{
-		if (check[i])
-		{
+		if (check[i])	{
 			primes[j++] = i;
 			for (int k = i; k < size; k += i)
 			{
