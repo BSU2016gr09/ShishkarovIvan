@@ -88,7 +88,6 @@ float lenthToLine(int x, int y, int a, int b, int c) {
 	float lenth = (a*x + b*y + c)*1.0 / (sqrt(a*a + b*b)*1.0);
 	return lenth;
 }
-<<<<<<< HEAD:1-2 (2).cpp
 void give_memory(int * & A, int size) {
 	try {
 		A = new int[size];
