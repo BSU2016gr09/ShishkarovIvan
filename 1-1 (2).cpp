@@ -76,11 +76,9 @@ void give_memory(int * & A, int size) {
 	catch (...) {
 		cout << "failed";
 	}
-<<<<<<< HEAD:1-1 (2).cpp
 }
 void delete_memory(int * & A) {
 	delete[] A;
 }
-=======
 	return 1;
 }
