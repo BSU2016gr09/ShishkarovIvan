@@ -97,7 +97,7 @@ void primesSequence(int *A, int size) {
 
 	give_memory(primesA, size);
 	give_memory(index, size);
-
+// Ну, следующая строка совсем плохая!!! Тогда уж "all primes less than size"!!!!!!!!!!!!
 	int size_primes = 100; // fun eratosthenes creates array,that consists of all primes less than 100
 	int *primes;
 	give_memory(primes, size_primes);
@@ -129,6 +129,6 @@ void give_memory(int * & A, int size) {
 		cout << "failed";
 	}
 }
-void delete_memory(int * & A) {
+void delete_memory(int * & A) {// или убирай & или изменяй А!!!!
 	delete[] A;
 }
