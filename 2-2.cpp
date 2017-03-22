@@ -8,7 +8,7 @@
 
 using namespace std;
 
-static unsigned long int next_el = 1;
+static unsigned long int next_el = 1;//знаешь для чего тут написал static??? Или просто так???
 
 void give_memory(int * & A, int size);
 
@@ -61,10 +61,10 @@ void give_memory(int * & A, int size) {
 		cout << "failed";
 	}
 }
-void delete_memory(int * & A) {
+void delete_memory(int * & A) {//раз собирался менять * &, то надо было менять!!! A=nullptr;
 	delete[] A;
 }
-void XORsRand(unsigned int seed)
+void XORsRand(unsigned int seed) // офигенная функция!!! Просто супер ((((
 {
 	next_el = seed;
 }
