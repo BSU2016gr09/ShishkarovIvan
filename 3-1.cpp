@@ -55,9 +55,9 @@ void printArray(int **Matr, int lines, int strings) {
 	}
 }
 void give_memory(int **&Matr, int lines, int strings) {
-	Matr = new int *[lines];
+	Matr = new int *[lines];  // Без проверок???? Плохо!
 	for (int i = 0; i < lines; i++) {
-		Matr[i] = new int[strings];
+		Matr[i] = new int[strings]; // Без проверок???? Плохо!
 	}
 }
 void free_array(int **Matr, int lines, int strings) {
@@ -91,7 +91,7 @@ int get_min(int *A, int size) {
 void Sort(int *A,int * * pA, int size) {
 	int i =  0;
 	int j = 1;
-	for (; i < size; i++) {
+	for (; i < size; i++) { //что за галимый способ сортировки????
 		for (; j < size; j++) {
 			if (A[i] > A[j]) { 
 				swap(A[i], A[j]);
