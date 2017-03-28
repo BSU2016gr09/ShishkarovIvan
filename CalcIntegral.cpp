@@ -17,7 +17,7 @@ float inv(float x) {
 
 typedef float (*pf)(float);
 
-float caclIntegral(float a, float b, float pf(float), float e);// Понимаю почему это транслируется у тебя, но это не то, что мы хотели. Ты указываешь, фактически, повторение typedef!!! Должно быть float caclIntegral(float, float, pf, float);
+float caclIntegral(float a, float b,pf, float e);
 
 int main() {
 
@@ -43,19 +43,19 @@ int main() {
 	system("pause");
 	return 0;
 }
-float caclIntegral(float a, float b, float pf(float), float e) {//должно быть float caclIntegral(float a, float b, pf fff, float e)
+float caclIntegral(float a, float b,pf fun, float e) {
 	float etalon ;
 	float sum = 0;
 	int n = 1;
 	do{
 		etalon = sum;
 		float x = a;
-		n += n;//очевиднее все таки n=n*2;
+		n += n; // такая запись использована так как Вы говорили о том,что, где можно заменить умножение сложением,стоит заменять.
 		float l = (b - a) / n;
 		float rez = 0;
 		while (x<b)
 		{
-			rez = pf(x);//тут тогда rez=fff(x)
+			rez = fun(x);
 			x += l;
 			sum += rez*l;
 		}
