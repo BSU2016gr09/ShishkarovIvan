@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "Money.h"
+#include "Money.h" //Для тебя очень полезно почитать Лаптев В.В. - C++. Объектно-ориентированное программирование [2008]
 
 using namespace std;
 
@@ -23,7 +23,7 @@ int main() {
 	// my_salary.printMoney();
 	 
 	int n = 11;
-	 (my_salary.multByNumb(n)).printMoney();
+	 (my_salary.multByNumb(n)).printMoney();//думаю, что и без скобок сработает  my_salary.multByNumb(n).printMoney() но не факт...
 
 	 system("pause");
 	 return 0;
