@@ -17,7 +17,7 @@ float inv(float x) {
 
 typedef float (*pf)(float);
 
-float caclIntegral(float a, float b,pf, float e);
+float caclIntegral(float a, float b,pf, float e);// Лучше так: float caclIntegral(float, float,pf, float);
 
 int main() {
 
